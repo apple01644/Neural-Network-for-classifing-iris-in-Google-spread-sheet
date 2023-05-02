@@ -2,7 +2,7 @@
 [The google sheet](https://docs.google.com/spreadsheets/d/1kZih1N1NpMMOKKmTtfIX1BIpiqwvwt-7wuG1b05WFpc/edit?usp=sharing)
 
 ## Result
-![image](https://user-images.githubusercontent.com/36323843/235649390-3f63d2bd-e968-4d4d-8c39-dad8893e7e08.png)
+![image](https://user-images.githubusercontent.com/36323843/235649390-3f63d2bd-e968-4d4d-8c39-dad8893e7e08.png)  
 It seems like it can distinguish `setosa`(j=1) and others but `versicolor`(j=2) and `virginica`(j=3).
 I tried to add a hidden layer one more. 
 But I still can not. And it was too laggy to train further.
@@ -26,7 +26,9 @@ But I still can not. And it was too laggy to train further.
   - **B1** ∈ R[HiddenCount]
   - **W2** ∈ R[HiddenCount × OutputCount]
   - **B2** ∈ R[OutputCount]
-  - some matrices for forward procedure(M1, S1, A2, S1... or etc.)
+  - some matrices for forward procedure(M1, S1, A2, S1... or etc.)  
+
+
 ![image](https://user-images.githubusercontent.com/36323843/235649033-1ab04407-8980-49db-9b11-adf6fc6fa7a9.png)
 ## Procedures
 1. Initialize weights and biases with random values between `-1` and `+1`
@@ -57,7 +59,9 @@ But I still can not. And it was too laggy to train further.
 
 ### Caculate Loss
 - Simple: L(**Y**[i], **Y^**[i]) = (**Y**[i] - **Y^**[i]) ** 2
-- Expanded: L(**Y**[i], **Y^**[i]) = **Σ**(k=0;OutputCount) { (**Y**[i,k] - **Y^**[i,k]) ** 2 }
+- Expanded: L(**Y**[i], **Y^**[i]) = **Σ**(k=0;OutputCount) { (**Y**[i,k] - **Y^**[i,k]) ** 2 }  
+
+
 ![image](https://user-images.githubusercontent.com/36323843/235649088-7c50e8a0-a508-42fd-bda8-0a7abccf2b7c.png)
 
 ### Backpropagation
@@ -77,11 +81,15 @@ But I still can not. And it was too laggy to train further.
     - ∂(**S2**[i,j])/∂(**B2**[i,j]) = 1
   - Step6:  ∂(**A2**[i,j])/∂(**S2**[i,j]) = σ(**S2**[i,j]) * σ(1 - **S2**[i,j])
   - Step7: ∂(**Y^**[i,j])/∂(**A2**[i,j]) = 1
-- Caculate Loss: ∂L(**Y**[i], **Y^**[i])/∂(**Y^**[i,j]) = 2×**Y**[i,j] + 2×**Y^**[i,j]
+- Caculate Loss: ∂L(**Y**[i], **Y^**[i])/∂(**Y^**[i,j]) = 2×**Y**[i,j] + 2×**Y^**[i,j]  
+
+
 ![image](https://user-images.githubusercontent.com/36323843/235649244-7b030892-97a0-421e-bc0c-0cfe05599850.png)
 
 #### Use the chainrule to caculate partital of Loss(=**L**) to respect to every weights and bias using earlier results of partial derivative
- - Example: ∂(**Loss**[i])/∂(**S2**[i,j]) = (2×**Y**[i,j] + 2×**Y^**[i,j]) * 1 * σ(**S2**[i,j]) * σ(1 - **S2**[i,j])
+ - Example: ∂(**Loss**[i])/∂(**S2**[i,j]) = (2×**Y**[i,j] + 2×**Y^**[i,j]) * 1 * σ(**S2**[i,j]) * σ(1 - **S2**[i,j])  
+
+
  ![image](https://user-images.githubusercontent.com/36323843/235649199-ff18b574-0da2-4bad-bf1a-e59203b3023d.png)
 
 
