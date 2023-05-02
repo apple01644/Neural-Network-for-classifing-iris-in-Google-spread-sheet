@@ -3,7 +3,7 @@
 
 ## Result
 ![image](https://user-images.githubusercontent.com/36323843/235649390-3f63d2bd-e968-4d4d-8c39-dad8893e7e08.png)  
-It seems like it can distinguish `setosa`(j=1) and others but `versicolor`(j=2) and `virginica`(j=3).
+It seems like it can distinguish `setosa`(j=1) and others but `versicolor`(j=2) and `virginica`(j=3).  
 I tried to add a hidden layer one more. 
 But I still can not. And it was too laggy to train further.
 
